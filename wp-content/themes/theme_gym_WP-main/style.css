@@ -1,0 +1,400 @@
+/*
+Theme Name: Gym Fitness FlexBox
+Theme URI: 
+Version: 1.0
+license: GNU General Public License v2 or later
+license URI: http://www.gnu.org/licenses/gpl-2.0.html
+Author: Jesús Mares for Gym Fitness
+Author URI: https://marescdmx.github.io/Portfolio-Jesus-Mares.github.io/#portfolio
+Description: Tema diseñado para el Gimnasio GymFitness
+Tags: Gym, Gimnasio, flexbox, css, html5, responsive, bootstrap, mobile first, gymfitness, gymfitness.com, gymfitness.com.mx, gymfitness.com.mx.
+Text Domain: gymfitness
+
+*/
+:root {
+  /** Fonts **/
+  --fuentePrincipal: "Staatliches", cursive;
+  --fuenteTexto: "Open Sans", sans-serif;
+  --fuenteSecundaria: "Raleway", sans-serif;
+
+  /** Colors **/
+  --colorPrimario: #ff5b00;
+  --grisOscuro: #2f2e2e;
+  --grisClaro: #ece8e8;
+  --blanco: #ffffff;
+  --black: #000000;
+}
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 10px = 1rem! */
+}
+body {
+  font-size: 16px; /* px fallback */
+  font-size: 1.6rem; /* default font-size for document */
+  line-height: 2; /* a nice line-height */
+  font-family: var(--fuenteSecundaria);
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/** Headings **/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--fuentePrincipal);
+  margin: 1rem 0;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 6rem;
+}
+h2 {
+  font-size: 4.8rem;
+}
+h3 {
+  font-size: 3.6rem;
+}
+h4 {
+  font-size: 2.4rem;
+}
+
+/** Globales **/
+a {
+  text-decoration: none;
+  color: var(--colorPrimario);
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.contenedor {
+  max-width: 1200px;
+  width: 95%;
+  margin: 0 auto;
+}
+hr {
+  border: 1px solid var(--grisClaro);
+}
+.imagen-destacada {
+  margin-bottom: 3rem;
+}
+/** Utilidades **/
+.text-center {
+  text-align: center;
+}
+.texto-primario {
+  color: var(--colorPrimario);
+}
+.seccion {
+  padding: 5rem 0;
+}
+/** Estilos para el Header **/
+.site-header {
+  background: var(--grisOscuro);
+  padding: 1rem 0 2rem;
+}
+@media (min-width: 768px) {
+  .barra-navegacion {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+/** Estilos para el menu **/
+.menu-principal {
+  display: none;
+}
+@media (min-width: 768px) {
+  .menu-principal {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .menu-principal .menu {
+    display: flex;
+    justify-content: space-around;
+  }
+  .menu-principal li {
+    margin-right: 2rem;
+  }
+  .menu-principal li:last-of-type {
+    margin-right: 0;
+  }
+}
+.menu-principal a {
+  font-family: var(--fuentePrincipal);
+  font-size: 2.2rem;
+  padding: 0.5rem 2rem;
+  display: block;
+}
+@media (min-width: 768px) {
+  .menu-principal a {
+    font-size: 2.6rem;
+    position: relative;
+    z-index: 1;
+  }
+  .menu-principal a::before,
+  .menu-principal a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 50%;
+    background-color: var(--blanco);
+    z-index: -1;
+    transform: scaleX(0);
+    transition: transform 0.6s;
+  }
+  .menu-principal a::before {
+    top: 0;
+    transform-origin: left;
+  }
+  .menu-principal a::after {
+    top: 50%;
+    transform-origin: right;
+  }
+  .menu-principal a:hover::before {
+    transform: scaleX(1);
+  }
+  .menu-principal a:hover::after {
+    transform: scaleX(1);
+  }
+}
+.menu-principal .current_page_item {
+  border-bottom: 3px solid var(--colorPrimario);
+}
+/** Reescribir el estilo del slicknav menumovil **/
+.slicknav_menu {
+  background-color: var(--grisOscuro);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .slicknav_menu {
+    display: none;
+  }
+}
+.slicknav_btn {
+  background-color: var(--colorPrimario);
+  margin: 3rem 0;
+  padding: 1.5rem;
+}
+.slicknav_nav a {
+  font-size: 2.4rem;
+  text-align: center;
+  font-family: var(--fuentePrincipal);
+  background-color: var(--grisOscuro);
+}
+.slicknav_nav a:hover {
+  background: transparent;
+  color: var(--colorPrimario);
+}
+/** Estilos para el footer **/
+.contenido-footer {
+  padding: 4rem 0;
+}
+@media (min-width: 768px) {
+  .contenido-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.site-footer .menu-principal {
+  display: block;
+}
+.site-footer a {
+  text-align: center;
+  font-size: 2.4rem;
+  padding: 0 1rem;
+}
+.site-footer .menu-principal .current_page_item {
+  border: none;
+}
+@media (min-width: 768px) {
+  .site-footer .menu-principal .current_page_item {
+    border-bottom: 3px solid var(--colorPrimario);
+  }
+}
+.site-footer .menu-principal a::before,
+.site-footer .menu-principal a::after {
+  display: none;
+}
+.copyright {
+  text-align: center;
+  font-size: 1.8rem;
+  font-family: var(--fuentePrincipal);
+  margin: 2rem 0 0 0;
+}
+@media (min-width: 768px) {
+  .copyright {
+    font-size: 2.4rem;
+    margin: 0;
+  }
+}
+
+/** Estilos para Paginas **/
+.pagina h1 {
+  margin-bottom: 4rem;
+}
+@media (min-width: 768px) {
+  .pagina.con-sidebar {
+    display: flex;
+    justify-content: space-between;
+  }
+  .con-sidebar .contenido-principal {
+    flex: 0 0 calc(65% - 2rem);
+  }
+  .con-sidebar .sidebar {
+    flex: 0 0 calc(35% - 2rem);
+  }
+}
+/** Estilos No sidebar **/
+.no-sidebar {
+  display: flex;
+  justify-content: center;
+}
+.no-sidebar .contenido-principal {
+  flex: 0 1 800px;
+}
+/** Single clases **/
+.informacion-clase {
+  font-weight: 700;
+  font-size: 2.2rem;
+  font-family: var(--fuenteSecundaria);
+  text-align: center;
+}
+/** Clases **/
+.lista-clases {
+  margin-top: 4rem;
+}
+@media (min-width: 768px) {
+  .lista-clases {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+/** Cards **/
+@media (min-width: 768px) {
+  .gradient::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+34,0.3+66,0.7+100 */
+    background: -moz-linear-gradient(
+      top,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 34%,
+      rgba(0, 0, 0, 0.3) 66%,
+      rgba(0, 0, 0, 0.7) 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      top,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 34%,
+      rgba(0, 0, 0, 0.3) 66%,
+      rgba(0, 0, 0, 0.7) 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 34%,
+      rgba(0, 0, 0, 0.3) 66%,
+      rgba(0, 0, 0, 0.7) 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#b3000000',GradientType=0 ); /* IE6-9 */
+  }
+}
+
+.card {
+  margin-bottom: 4rem;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .card {
+    flex: 0 0 calc(50% - 2rem);
+  }
+}
+.card img {
+  display: block;
+}
+.card .contenido {
+  padding: 3rem;
+}
+@media (min-width: 768px) {
+  .card .contenido {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: left;
+    z-index: 2;
+  }
+}
+.card .contenido h3 {
+  line-height: 1;
+  color: var(--colorPrimario);
+}
+@media (min-width: 768px) {
+  .card .contenido h3 {
+    color: var(--blanco);
+  }
+}
+.card .contenido p {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .card .contenido p {
+    color: var(--colorPrimario);
+  }
+}
+/** Estilos para clase Sidebar **/
+.clase-sidebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--grisClaro);
+}
+.clase-sidebar .imagen {
+  flex: 0 0 30%;
+}
+.clase-sidebar .contenido {
+  flex: 0 0 calc(70% - 2rem);
+}
+.clase-sidebar .contenido h3 {
+  font-size: 2.4rem;
+  margin: 0;
+}
+.clase-sidebar .contenido a {
+  color: var(--colorPrimario);
+}
+.clase-sidebar .contenido p {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+}
